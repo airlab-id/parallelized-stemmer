@@ -10,6 +10,8 @@ Another dependencies that are used for this project listed on `/requirements.txt
 1. always use virtualenv so this project wont bother your machine
 - on mac run `source /bin/activate`
 - on windows `\Scripts\activate`
+
 to exit virtualenv just exit the terminal or run `deactivate`
+
 2. `pip install -r requirements.txt` (for first time only)
 3. run python `setup.py`
