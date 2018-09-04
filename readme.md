@@ -13,4 +13,3 @@ Another dependencies that are used for this project listed on `/requirements.txt
 to exit virtualenv just exit the terminal or run `deactivate`
 2. `pip install -r requirements.txt` (for first time only)
 3. run python `setup.py`
-
