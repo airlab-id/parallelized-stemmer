@@ -5,6 +5,7 @@ Another dependencies that are used for this project listed on `/requirements.txt
 
 ### threading library
 - package multiprocessing https://docs.python.org/3.4/library/multiprocessing.html?highlight=process
+- dask https://towardsdatascience.com/why-every-data-scientist-should-use-dask-81b2b850e15b
 
 ## usage
 1. always use virtualenv so this project wont bother your machine
