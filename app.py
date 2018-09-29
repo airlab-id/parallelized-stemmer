@@ -1,17 +1,7 @@
-from flask import Flask, jsonify, Request
-from components.ecs_stemmer import EcsStemmer
+from components import main
 
-app = Flask(__name__)
-stemmer = EcsStemmer()
-
-@app.route("/ping", methods=['GET'])
-def pong(self):
-    return "pong"
-
-@app.route("/stemm/word", methods=['POST'])
-def stemm_word(self):
-    word = Request.json("result")
-    return jsonify({"result", word})
-
-if __name__ == "__main__":
-    app.run()
+def input_cmd():
+    input_query = input("String to stemm: ")
+    str_input = str(input_query)
+    result_stem = main.Stem(str_input)
+    print("result: " + result_stem)
