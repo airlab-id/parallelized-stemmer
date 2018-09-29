@@ -16,3 +16,6 @@ to exit virtualenv just exit the terminal or run `deactivate`
 
 2. `pip install -r requirements.txt` (for first time only)
 3. run python `setup.py`
+
+## how it works
+![thread-flow](https://user-images.githubusercontent.com/4990180/46242844-a3f6d080-c3f7-11e8-8293-936bf563d0e9.jpeg)
