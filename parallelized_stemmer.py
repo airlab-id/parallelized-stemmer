@@ -4,6 +4,7 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import re
 from dask import delayed
 import time
+from multiprocessing import Process
 
 class ParallelStemmer():
     DELIMETERS = "\"", "\'", "{", "}", "(", ")", "[", "]", ">", "<", "_", "=", "+", "|", "\\", ":", ";", " ", ",", ".", "/", "?", "~", "!", "@", "#", "$", "%", "^", "&", "*", "\r", "\n", "\t", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
@@ -29,11 +30,22 @@ class ParallelStemmer():
         stemmer = factory.create_stemmer()
         
         d = int(self.content_len()/total_process)
+        processes = []
 
+        start_time = time.time()
         for i in range(total_process - 1):
-            self.parallelized_execute_stem(stemmer, self.list_of_sentences, int(i * d), int((i+1) * d))
+            p = Process(target=self.parallelized_execute_stem, args=(stemmer, self.list_of_sentences, int(i * d), int((i+1) * d)))
+            processes.append(p)
+            p.start()
 
-        self.parallelized_execute_stem(stemmer, self.list_of_sentences, int(d * (total_process - 1)), self.content_len)
+        p = Process(target=self.parallelized_execute_stem, args=(stemmer, self.list_of_sentences, int(d * (total_process - 1)), self.content_len))
+        processes.append(p)
+        p.start()
+
+        for pr in processes:
+            pr.join()
+        end_time = time.time()
+        print("elapsed time in seconds", end_time - start_time)
 
     def execute_stem(self, stemmer, list_of_sentences, start, end):
         start_time = time.time()
@@ -49,10 +61,7 @@ class ParallelStemmer():
         end_time = time.time()
         print("elapsed time in seconds", end_time - start_time)
 
-    @delayed
     def parallelized_execute_stem(self, stemmer, list_of_sentences, start, end):
-        start_time = time.time()
-
         index = int(start)
         end_index = int(end)
 
@@ -61,6 +70,4 @@ class ParallelStemmer():
             for word in words:
                 if word:
                     print(i, stemmer.stem(word))
-        end_time = time.time()
-        print("elapsed time in seconds", end_time - start_time)
 
