@@ -1,7 +1,7 @@
 # parallelized-stemmer
 `parallelized-stemmer` aims to show report from the use of thread to improve time performance of stemmer algorithm.
-This repository using python version `3.6.4` and `flask` framework in order to try out the service by using exposed api. 
-Another dependencies that are used for this project listed on `/requirements.txt`
+This repository using python version `3.6.4`. 
+Another dependencies that are used for this project listed on `/requirements.txt` (please do `pip freeze` after adding new dependencies).
 
 ### stemmer library
 based on sastrawi `pip install PySastrawi`
