@@ -2,9 +2,9 @@
 
 from parallelized_stemmer import ParallelStemmer
 
-def input_cmd():
+def main():
     stemmer = ParallelStemmer()
-    print(stemmer.content_len())
+    stemmer.parallel_stem(3)
 
 if __name__ == "__main__":
-    input_cmd()
+    main()
