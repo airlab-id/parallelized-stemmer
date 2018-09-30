@@ -8,7 +8,6 @@ based on sastrawi `pip install PySastrawi`
 
 ### threading library
 - package multiprocessing https://docs.python.org/3.4/library/multiprocessing.html?highlight=process
-- dask https://towardsdatascience.com/why-every-data-scientist-should-use-dask-81b2b850e15b
 
 ## usage
 1. always use virtualenv so this project wont bother your machine
@@ -27,11 +26,11 @@ update `requirements.txt` using `pip freeze > requirements.txt`
 ![thread-flow](https://user-images.githubusercontent.com/4990180/46242844-a3f6d080-c3f7-11e8-8293-936bf563d0e9.jpeg)
 
 ## performance test using `time`
-- serial_stemmer#1 processed 87440 words, elapsed time in seconds 172.53443098068237
-- serial_stemmer#2 processed 87440 words, elapsed time in seconds 181.88903880119324
-- serial_stemmer#3 processed 87440 words, elapsed time in seconds 181.69096302986145
+all test processed 87440 words, elapsed time in measured in seconds
 
-- dask_stemmer#1 processed 87440 words, elapsed time in seconds 
-- dask_stemmer#2 processed 87440 words, elapsed time in seconds 
-- dask_stemmer#3 processed 87440 words, elapsed time in seconds 
+| #  | serial_stemmer     | multi-thread (3)   |
+| -- |:------------------:| ------------------:|
+| 1  | 172.53443098068237 | 138.93437695503235 |
+| 2  | 181.88903880119324 | 133.10081505775452 |
+| 3  | 181.69096302986145 | 114.8126060962677  |
 
