@@ -3,6 +3,9 @@
 This repository using python version `3.6.4` and `flask` framework in order to try out the service by using exposed api. 
 Another dependencies that are used for this project listed on `/requirements.txt`
 
+### stemmer library
+- based on Enhanced Config Stripping paper https://github.com/ariefrahmansyah/ecsstemmer
+
 ### threading library
 - package multiprocessing https://docs.python.org/3.4/library/multiprocessing.html?highlight=process
 - dask https://towardsdatascience.com/why-every-data-scientist-should-use-dask-81b2b850e15b
